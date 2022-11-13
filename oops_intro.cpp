@@ -13,7 +13,16 @@ public:
     // setters
     void setSellingPrice(int price)
     {
-        selling_price = price;
+        // additional checks on setting selling price
+        // we should put a price that is lower than or equall to MRP
+        if (price > mrp)
+        {
+            selling_price = mrp;
+        }
+        else
+        {
+            selling_price = price;
+        }
     }
     void setMRP(int price)
     {
