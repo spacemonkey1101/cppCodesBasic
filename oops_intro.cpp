@@ -26,7 +26,14 @@ public:
     }
     void setMRP(int price)
     {
-        mrp = price;
+        if (price > 0)
+        {
+            mrp = price;
+        }
+        else
+        {
+            mrp = 0;
+        }
     }
     // getters
     int getMRP()
