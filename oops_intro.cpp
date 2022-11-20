@@ -75,6 +75,11 @@ int main()
     // this calls the default constructor that is implemented internally
     Product camera;
     Product camera2(2, "SonyCam", 2200, 2000);
+
+    //Calling the default copy constructor which is internally implemented
+    Product camera3(camera2);
+
+
     // this is not the correct way of setting variables
     // camera.mrp = 100;
     // camera.selling_price = 80;
@@ -94,4 +99,10 @@ int main()
     cout << "name of camera2 is " << camera2.getName() << endl;
     cout << "MRP of camera2 is " << camera2.getMRP() << endl;
     cout << "Selling Price of camera2 is " << camera2.getSellingPrice() << endl;
+    
+    // This will give 
+    cout << "id od camera3 is " << camera3.getId() << endl;
+    cout << "name of camera3 is " << camera3.getName() << endl;
+    cout << "MRP of camera3 is " << camera3.getMRP() << endl;
+    cout << "Selling Price of camera3 is " << camera3.getSellingPrice() << endl;
 }
