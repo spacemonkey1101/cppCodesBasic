@@ -29,9 +29,15 @@ public:
         (*this).selling_price = selling_price;
     }
 
-    Product (Product &P) {
-        //using an empty copy constructor leads to the copy not taking place
+    Product(Product &P)
+    {
+        // we have to use the parameter P as a reference here
+        id = P.id;
+        mrp = P.mrp;
+        selling_price = P.selling_price;
+        // name is not copied now it would be done later
     }
+
     // setters
     void setSellingPrice(int price)
     {
@@ -100,13 +106,13 @@ int main()
     cout << "MRP of camera is " << camera.getMRP() << endl;
     cout << "Selling Price of camera is " << camera.getSellingPrice() << endl;
 
-    cout << "id od camera2 is " << camera2.getId() << endl;
+    cout << "id of camera2 is " << camera2.getId() << endl;
     cout << "name of camera2 is " << camera2.getName() << endl;
     cout << "MRP of camera2 is " << camera2.getMRP() << endl;
     cout << "Selling Price of camera2 is " << camera2.getSellingPrice() << endl;
 
     // This will give
-    cout << "id od camera3 is " << camera3.getId() << endl;
+    cout << "id of camera3 is " << camera3.getId() << endl;
     cout << "name of camera3 is " << camera3.getName() << endl;
     cout << "MRP of camera3 is " << camera3.getMRP() << endl;
     cout << "Selling Price of camera3 is " << camera3.getSellingPrice() << endl;
