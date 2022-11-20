@@ -91,6 +91,9 @@ int main()
     // Calling the default copy constructor which is internally implemented
     Product camera3(camera2);
 
+    // Another way of using a copy constructor
+    Product camera4 = camera2;
+
     // this is not the correct way of setting variables
     // camera.mrp = 100;
     // camera.selling_price = 80;
@@ -111,9 +114,15 @@ int main()
     cout << "MRP of camera2 is " << camera2.getMRP() << endl;
     cout << "Selling Price of camera2 is " << camera2.getSellingPrice() << endl;
 
-    // This will give
+    // This will give the same result as camera2
     cout << "id of camera3 is " << camera3.getId() << endl;
-    cout << "name of camera3 is " << camera3.getName() << endl;
+    cout << "name of camera3 is " << camera3.getName() << endl; // name will not be copied now
     cout << "MRP of camera3 is " << camera3.getMRP() << endl;
     cout << "Selling Price of camera3 is " << camera3.getSellingPrice() << endl;
+
+    // This will give the same result as camera2
+    cout << "id of camera4 is " << camera4.getId() << endl;
+    cout << "name of camera4 is " << camera4.getName() << endl; // name will not be copied now
+    cout << "MRP of camera4 is " << camera4.getMRP() << endl;
+    cout << "Selling Price of camera4 is " << camera4.getSellingPrice() << endl;
 }
