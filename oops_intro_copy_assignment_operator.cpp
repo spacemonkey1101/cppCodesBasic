@@ -88,6 +88,21 @@ public:
     {
         return id;
     }
+
+    // copy assignment operator function
+    void operator=(Product &P)
+    {
+        // deep copy
+        // we are overloading = operator
+        cout << "Inside copy assignment operator function" << endl;
+
+        // same code from copy constructor
+        id = P.id;
+        mrp = P.mrp;
+        selling_price = P.selling_price;
+        name = new char[strlen(P.name) + 1];
+        strcpy(name, P.name);
+    }
 };
 
 int main()
@@ -100,8 +115,10 @@ int main()
 
     // lets change the name of old camera
     camera_old.setName("Kotal old gen");
-    // the above change is reflected in both the objects ; 
+    // the above change is reflected in both the objects ;
     // it also does shallow copy
+
+    // to do a deep copy we need to implement our own copy assignment operator func
 
     cout << "id of camera is " << camera.getId() << endl;
     cout << "name of camera is " << camera.getName() << endl;
