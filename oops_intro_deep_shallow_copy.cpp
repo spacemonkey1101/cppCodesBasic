@@ -18,7 +18,7 @@ public:
     {
         cout << "Inside constructor" << endl;
     }
-
+    // parameterized constructor
     Product(int id, char *n, int mrp, int selling_price)
     {
         // this is a parameterized constructor that is being used to
@@ -28,6 +28,17 @@ public:
         (*this).selling_price = selling_price;
         name = new char[strlen(n) + 1];
         strcpy(name, n);
+    }
+
+    // copy constructor
+    Product(Product &P)
+    {
+        // we have to use the parameter P as a reference here
+        id = P.id;
+        mrp = P.mrp;
+        selling_price = P.selling_price;
+        name = new char[strlen(P.name) + 1];
+        strcpy(name, P.name);
     }
 
     // setters
@@ -81,7 +92,7 @@ public:
 
 int main()
 {
-    Product camera(101, "Kodak New Get", 3000, 2500);
+    Product camera(101, "Kodak New Gen", 3000, 2500);
     // the ambiguity seen below is due to the below line calling the default copy
     // constructor which does a shallow copy, we should implement deep copy by
     // calling our own copy constructor
