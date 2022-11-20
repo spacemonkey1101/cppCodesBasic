@@ -35,7 +35,7 @@ public:
         id = P.id;
         mrp = P.mrp;
         selling_price = P.selling_price;
-        // name is not copied now it would be done later
+        strcpy(name, P.name);
     }
 
     // setters
