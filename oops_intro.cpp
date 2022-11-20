@@ -10,6 +10,13 @@ private:
     int selling_price;
 
 public:
+    // constructor
+    // this is the default consructor that already exist
+    Product()
+    {
+        cout << "Inside constructor" << endl;
+    }
+
     // setters
     void setSellingPrice(int price)
     {
@@ -48,7 +55,7 @@ public:
 
 int main()
 {
-
+    // this calls the default constructor that is implemented internally
     Product camera;
     // this is not the correct way of setting variables
     // camera.mrp = 100;
