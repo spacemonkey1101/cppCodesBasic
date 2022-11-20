@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstring>
+
 using namespace std;
 
 class Product
@@ -17,8 +19,17 @@ public:
         cout << "Inside constructor" << endl;
     }
 
-    // setters
-    void setSellingPrice(int price)
+    Product(int id, char *n, int mrp, int selling_price){
+        //this is a parameterized constructor that is being used to 
+        //initialize member variables
+        this->id = id ; //left id refers to the 'id' member 
+        strcpy(name, n);
+        this->mrp = mrp;
+        (*this).selling_price = selling_price;
+
+    }
+        // setters
+        void setSellingPrice(int price)
     {
         // additional checks on setting selling price
         // we should put a price that is lower than or equall to MRP
@@ -51,12 +62,19 @@ public:
     {
         return selling_price;
     }
+    char* getName(){
+        return name;
+    }
+    int getId(){
+        return id;
+    }
 };
 
 int main()
 {
     // this calls the default constructor that is implemented internally
     Product camera;
+    Product camera2(2, "SonyCam", 2200, 2000);
     // this is not the correct way of setting variables
     // camera.mrp = 100;
     // camera.selling_price = 80;
@@ -69,6 +87,11 @@ int main()
 
     // using getters to get the value
 
-    cout << "MRP of camera is" << camera.getMRP() << endl;
-    cout << "Selling Price of camera is" << camera.getSellingPrice() << endl;
+    cout << "MRP of camera is " << camera.getMRP() << endl;
+    cout << "Selling Price of camera is " << camera.getSellingPrice() << endl;
+    
+    cout << "id od camera2 is " << camera2.getId() << endl;
+    cout << "name of camera2 is " << camera2.getName() << endl;
+    cout << "MRP of camera2 is " << camera2.getMRP() << endl;
+    cout << "Selling Price of camera2 is " << camera2.getSellingPrice() << endl;
 }
